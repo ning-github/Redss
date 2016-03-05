@@ -1,3 +1,8 @@
 .form-control:focus {
   border-color: purple;
 }
+
+.btn-primary {
+    background-color: purple;
+    border-color: purple;
+}
