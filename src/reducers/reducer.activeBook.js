@@ -1,6 +1,6 @@
 // note that the state here is the piece of app state that this reducer handles
 // eg activeBook
-export default function (state, action) {
+export default function (state = null, action) {
     switch (action.type) {
         case 'BOOK_SELECTED':
             return action.payload;
