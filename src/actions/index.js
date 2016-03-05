@@ -1,3 +1,7 @@
 export default function selectBook(book) {
-    console.log('this is selected book title ', book.title);
+    // return an action object that has type
+    return {
+        type: 'BOOK_SELECTED',
+        payload: book
+    }
 }
