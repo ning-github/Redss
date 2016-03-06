@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
+import fetchWeather from '../actions/index';
+
 class SearchBar extends Component{
     constructor(props) {
         super(props);
@@ -12,6 +14,7 @@ class SearchBar extends Component{
 
         // this binding for callback
         this.onInputChange = this.onInputChange.bind(this);
+        this.onFormSubmit = this.onFormSubmit.bind(this);
     }
 
     onInputChange(event){
@@ -22,6 +25,12 @@ class SearchBar extends Component{
 
     onFormSubmit(event){
         event.preventDefault();
+
+        // fire action creator to make api request
+        this.props.fetchWeather(this.state.term);
+
+        // clear input field
+        this.setState({term: ''});
     }
 
     render() {
@@ -41,4 +50,9 @@ class SearchBar extends Component{
     }
 }
 
-export default SearchBar;
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({ fetchWeather }, dispatch);
+}
+
+// null because we don't need to mapStateToProps in this component. it never needs to pull data in.
+export default connect(null, mapDispatchToProps)(SearchBar);
