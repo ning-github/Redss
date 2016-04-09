@@ -1,22 +1,27 @@
-.form-control:focus {
-  border-color: purple;
+.search-bar {
+    margin: 20px;
+    text-align: center;
 }
 
-.btn-primary {
-    background-color: purple;
-    border-color: purple;
+.search-bar input {
+    width: 75%;
 }
 
-.input-group {
-    margin: 20px 0px;
+.video-item img {
+    max-width: 64px;
 }
 
-td, th {
-    vertical-align: middle !important;
-    text-align: center !important;
+.video-detail .details {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
 }
 
-td:first-of-type {
-    height: 200px;
-    width: 250px;
+.list-group-item {
+    cursor: pointer;
+}
+
+.list-group-item:hover {
+    background-color: #eee
 }
