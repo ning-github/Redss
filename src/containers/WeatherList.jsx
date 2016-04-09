@@ -30,4 +30,4 @@ function mapStateToProps(state){
     return {weather: state.weather}
 }
 
-export default WeatherList;
+export default connect(mapStateToProps)(WeatherList);
