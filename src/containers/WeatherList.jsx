@@ -23,7 +23,7 @@ class WeatherList extends Component {
 
 // note that this incoming state is the Application State from Redux store in in rootReducer
 function mapStateToProps(state){
-    // here we map the React component's state to the data from the Redux store
+    // here we map the React component's weather prop to the data from the Redux store
     return {weather: state.weather}
 }
 
