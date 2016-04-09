@@ -6,6 +6,18 @@ class WeatherList extends Component {
         super(props);
     }
 
+    renderWeather(cityData){
+        const cityName = cityData.city.name;
+        return (
+            <tr key={cityName}>
+                <td>{cityName}</td>
+                <td>temp</td>
+                <td>press</td>
+                <td>humid</td>
+            </tr>
+        );
+    }
+
     render() {
         return (
             <table className="table table-hover">
@@ -18,6 +30,7 @@ class WeatherList extends Component {
                     </tr>
                 </thead>
                 <tbody>
+                    {this.props.weather.map(this.renderWeather)}
                 </tbody>
             </table>
         );
