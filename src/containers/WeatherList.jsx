@@ -12,8 +12,9 @@ class WeatherList extends Component {
 
     renderWeather(cityData){
         const cityName = cityData.city.name;
-        const lat = cityData.city.coord.lat;
-        const lon = cityData.city.coord.lon;
+        const {lat, lon} = cityData.city.coord;
+        // const lat = cityData.city.coord.lat;
+        // const lon = cityData.city.coord.lon;
 
         const temps = cityData.list.map(weather => {
             return weather.main.temp;
