@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
-// action creator stuff
-import {bindActionCreators} from 'redux';
+// action creator
 import {fetchPosts} from '../actions/index';
 
 
@@ -30,8 +29,11 @@ function mapStateToProps(state){
     }
 }
 
-function mapDispatchToProps(dispatch){
-    return bindActionCreators({fetchPosts: fetchPosts}, dispatch);
-}
+// import {bindActionCreators} from 'redux';
+// function mapDispatchToProps(dispatch){
+//     return bindActionCreators({fetchPosts: fetchPosts}, dispatch);
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PostsIndex);
+// Note how above, by using the ES6 shortcut below, we can avoid boilerplate
+
+export default connect(mapStateToProps, { fetchPosts })(PostsIndex);
