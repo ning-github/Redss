@@ -10,6 +10,7 @@ class PostsIndex extends Component {
     constructor(props, context) {
         super(props);
         this.transitionTo = this.transitionTo.bind(this);
+        this.renderBlogPosts = this.renderBlogPosts.bind(this);
     }
 
     static contextTypes = {
@@ -22,6 +23,17 @@ class PostsIndex extends Component {
 
     componentWillMount(){
         this.props.fetchPosts();
+    }
+
+    renderBlogPosts() {
+        return this.props.posts.map((post) => {
+            return (
+                <li key={post.id} className="list-group-item">
+                    <span className="pull-xs-right">{post.categories}</span>
+                    <strong>{post.title}</strong>
+                </li>
+            );
+        });
     }
 
     render() {
@@ -39,7 +51,7 @@ class PostsIndex extends Component {
                         Add Post
                     </Link>
                 </div>
-                List of Posts
+                {this.renderBlogPosts()}
             </div>
         )
     }
@@ -47,7 +59,7 @@ class PostsIndex extends Component {
 
 function mapStateToProps(state){
     return {
-        posts: state.posts
+        posts: state.posts.all
     }
 }
 
