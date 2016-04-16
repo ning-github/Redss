@@ -11,8 +11,10 @@ import reducers from './reducers';
 // middleware
 import promise from 'redux-promise';
 
+// create the actual store object
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
+// pass the rootReducer to the store prop binding in Provider 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <Router history={browserHistory} routes={Routes}/>
