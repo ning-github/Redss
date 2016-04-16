@@ -9,11 +9,10 @@ class PostsNew extends Component {
     }
 
     render() {
-        console.log('this.props: ', this.props);
         return (
             <div>
 
-                I am new post lol
+                Create Form
             </div>
         )
     }

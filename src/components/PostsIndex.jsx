@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Router} from 'react-router';
+import {Link} from 'react-router';
 
 // action creator
 import {fetchPosts} from '../actions/index';
@@ -30,9 +30,19 @@ class PostsIndex extends Component {
     render() {
         return (
             <div>
-                <div onClick={this.transitionTo}>
+                {/*
+                    // this is an example of navigating programmatically
+                        - as opposed to declarative with <Link />
+                    <div onClick={this.transitionTo}>
                     CLICK ME
+                    </div>
+                */}
+                <div>
+                    <Link to="/posts/new">
+                    Add Post
+                    </Link>
                 </div>
+                List of Posts
             </div>
         )
     }
