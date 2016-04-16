@@ -17,8 +17,8 @@ class PostsIndex extends Component {
         router: React.PropTypes.object.isRequired
     }
 
-    transitionTo() {
-        this.context.router.push('/posts/new');
+    transitionTo(route, params) {
+        this.context.router.push(route, params);
     }
 
     componentWillMount(){
@@ -27,8 +27,9 @@ class PostsIndex extends Component {
 
     renderBlogPosts() {
         return this.props.posts.map((post) => {
+            let route = `posts/${post.id}`;
             return (
-                <li key={post.id} className="list-group-item">
+                <li key={post.id} className="list-group-item" onClick={()=>{this.transitionTo(route)}}>
                     <span className="pull-xs-right">{post.categories}</span>
                     <strong>{post.title}</strong>
                 </li>
