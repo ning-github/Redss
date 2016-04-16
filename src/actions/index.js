@@ -10,9 +10,9 @@ export function fetchPosts() {
     }
 }
 
-export function createNewPost(payload) {
+export function createNewPost(propsAsPayload) {
     return {
-        // type:
-        // payload: axios.post 
+        type:actionTypes.CREATE_NEW_POST,
+        payload: axios.post(urls.BLOG_POSTS, propsAsPayload)
     }
 }

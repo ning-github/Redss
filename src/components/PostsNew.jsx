@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 // reduxForm is a special connect function that binds redux state to this component
 import { reduxForm } from 'redux-form';
-
-// import {createNewPost} from '../actions/index';
+// actionCreator to pass to handleSubmit of reduxForm
+import {createNewPost} from '../actions/index';
 
 /* reduxForm is a Higher Order Component
     - just like connect
@@ -24,7 +24,8 @@ class PostsNew extends Component {
             let handleSubmit = this.props.handleSubmit;
         */
         return (
-            <form>
+            <form onSubmit={handleSubmit(this.props.createNewPost)}>
+                {/* ^-- actionCreator mapped into props by reduxForm connector */}
                 <h3>Create a New Post</h3>
 
                 <div className="form-group">
@@ -50,10 +51,14 @@ class PostsNew extends Component {
 
 const fields = ['title', 'categories', 'content'];
 
+// just like connect, reduxForm still accepts, in addition to config as 1st arg
+//      mapStateToProps (for bringing redux state for prop population) and
+//      mapDispatchToProps (for attaching actionCreators)
+
 export default reduxForm({
     form: "PostsNewForm",
     fields
-})(PostsNew);
+}, null, { createNewPost })(PostsNew);
 
 /*
     What this does is hook into redux state:

@@ -5,5 +5,6 @@ export const urls = {
 }
 
 export const actionTypes = {
-    'FETCH_POSTS': 'FETCH_POSTS'
+    'FETCH_POSTS': 'FETCH_POSTS',
+    'CREATE_NEW_POST': 'CREATE_NEW_POST'
 }
