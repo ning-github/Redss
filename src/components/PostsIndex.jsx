@@ -1,14 +1,26 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {Router} from 'react-router';
 
 // action creator
 import {fetchPosts} from '../actions/index';
 
 
 class PostsIndex extends Component {
-    constructor(props) {
+    contextTypes: {
+        router: React.PropTypes.func.isRequired
+    }
+    constructor(props, context) {
         super(props);
+        this.transitionTo = this.transitionTo.bind(this);
+    }
 
+    static contextTypes = {
+        router: React.PropTypes.object.isRequired
+    }
+
+    transitionTo() {
+        this.context.router.push('/posts/new');
     }
 
     componentWillMount(){
@@ -18,6 +30,9 @@ class PostsIndex extends Component {
     render() {
         return (
             <div>
+                <div onClick={this.transitionTo}>
+                    CLICK ME
+                </div>
             </div>
         )
     }

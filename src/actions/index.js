@@ -9,3 +9,10 @@ export function fetchPosts() {
         payload: axios.get(urls.BLOG_POSTS)
     }
 }
+
+export function createNewPost(payload) {
+    return {
+        // type:
+        // payload: axios.post 
+    }
+}
