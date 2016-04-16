@@ -7,9 +7,6 @@ import {fetchPosts} from '../actions/index';
 
 
 class PostsIndex extends Component {
-    contextTypes: {
-        router: React.PropTypes.func.isRequired
-    }
     constructor(props, context) {
         super(props);
         this.transitionTo = this.transitionTo.bind(this);

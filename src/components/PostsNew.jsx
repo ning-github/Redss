@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+// reduxForm is a special connect function that binds redux state to this component
+import { reduxForm } from 'redux-form';
 
 import {createNewPost} from '../actions/index';
 
@@ -10,18 +11,48 @@ class PostsNew extends Component {
 
     render() {
         return (
-            <div>
+            <form>
+                <h3>Create a New Post</h3>
 
-                Create Form
-            </div>
+                <div className="form-group">
+                    <label>Title</label>
+                    <input type="text" className="form-control" />
+                </div>
+
+                <div className="form-group">
+                    <label>Categories</label>
+                    <input type="text" className="form-control" />
+                </div>
+
+                <div className="form-group">
+                    <label>Content</label>
+                    <textarea type="text" className="form-control" />
+                </div>
+
+                <button type="submit" className="btn btn-primary">Submit</button>
+            </form>
         )
     }
 }
 
-function mapStateToProps(state) {
-    return {
-        state: state
-    }
-}
+const fields = ['title', 'categories', 'content'];
 
-export default connect(mapStateToProps, {createNewPost})(PostsNew);
+export default reduxForm(
+    form: "PostsNewForm",
+    fields
+)(PostsNew);
+
+/*
+    What this does is hook into redux state:
+
+    state === {
+        form: {
+            PostsNewForm: {
+                title: ,
+                categories: ,
+                content:
+            }
+        }
+    }
+
+*/
