@@ -37,10 +37,10 @@ class PostsNew extends Component {
 
 const fields = ['title', 'categories', 'content'];
 
-export default reduxForm(
+export default reduxForm({
     form: "PostsNewForm",
     fields
-)(PostsNew);
+})(PostsNew);
 
 /*
     What this does is hook into redux state:
