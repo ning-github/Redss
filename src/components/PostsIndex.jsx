@@ -37,9 +37,9 @@ class PostsIndex extends Component {
                     CLICK ME
                     </div>
                 */}
-                <div>
-                    <Link to="/posts/new">
-                    Add Post
+                <div className="text-xs-right">
+                    <Link to="/posts/new" className="btn btn-primary">
+                        Add Post
                     </Link>
                 </div>
                 List of Posts
