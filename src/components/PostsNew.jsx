@@ -31,6 +31,7 @@ class PostsNew extends Component {
                 <div className="form-group">
                     <label>Title</label>
                     <input type="text" className="form-control" {...title}/>
+                    {title.touched ? title.error : null}
                 </div>
 
                 <div className="form-group">
@@ -51,12 +52,24 @@ class PostsNew extends Component {
 
 const fields = ['title', 'categories', 'content'];
 
+// validation
+function validate(values) {
+    const errors = {};
+    // title
+    if (!values.title) {
+        errors.title = 'Enter a title';
+    }
+
+    return errors;
+}
+
 // just like connect, reduxForm still accepts, in addition to config as 1st arg
 //      mapStateToProps (for bringing redux state for prop population) and
 //      mapDispatchToProps (for attaching actionCreators)
 
 export default reduxForm({
     form: "PostsNewForm",
+    validate,
     fields
 }, null, { createNewPost })(PostsNew);
 
