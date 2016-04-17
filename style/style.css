@@ -5,3 +5,7 @@ form a {
 .list-group-item {
     cursor: pointer;
 }
+
+.text-xs-right {
+    margin: 40px auto 40px auto;
+}
